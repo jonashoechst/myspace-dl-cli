@@ -1,6 +1,9 @@
 #!/bin/bash --
-#Myspace music downloader v5.3
-#Updated on Oct 29th 2011
+# Myspace music downloader v5.3
+# Author: Luka Pusic <luka@pusic.si>
+# WARNING: not working atm... i'm fixing it (15.12.2011)
+#
+
 echo "MySpace music downloader by http://360percents.com"
 
 if [ -z "$1" ]; then
@@ -48,15 +51,16 @@ echo "[+] Found $songcount songs."
 for i in `seq 1 $songcount`
 do
  songid=`echo "$songs" | sed -n "$i"p`
- link="http://www.myspace.com/music/services/player?songId=$songid&action=getSong&sample=0&ptype=4"
+ link="http://www.myspace.com/music/player?sid=$songid"
  songpage=`wget -L "$link" --quiet --user-agent="Mozilla" -O -`
- title=`echo "$songpage" | tr "<" "\n" | grep 'title' | tr ">" "\n" | grep -v 'title' | sed -e '/^$/d' | sort -u`
- rtmp=`echo "$songpage" | tr "<" "\n" | tr ">" "\n" | grep 'rtmp://' | uniq`
+ title=`echo "$songpage" | grep 'class="song"' | sed -e 's/.*class="song" title="//' -e 's/".*//' | head -n 1`
+ rtmp=`echo "$songpage" | grep "rtmp://" | tr "," "\n" | grep 'rtmp://' | cut -d '"' -f 4 | head -n 1`
+ player=`echo "$songpage" | grep 'PixelPlayerUrl' | sed -e 's/.*{PixelPlayerUrl":"//' -e 's/".*//' | head -n 1`
  if [ ! "$title" ]; then
   title="$i"  #use number if no title found
  fi
  echo "Downloading $title..."
- rtmpdump -r "$rtmp" -o "$artistname - $title.flv" -q -W "http://lads.myspacecdn.com/videos/MSMusicPlayer.swf"
+ rtmpdump -r "$rtmp" -o "$artistname - $title.flv" -q -W "$player"
  if which ffmpeg >/dev/null; then
   echo "Converting $title to mp3..."
   ffmpeg -y -i "$artistname - $title.flv" -metadata TITLE="$title" -metadata ARTIST="$artistname" -acodec copy -f mp3 "$artistname - $title.mp3" > /dev/null 2>&1 && rm "$artistname - $title.flv"

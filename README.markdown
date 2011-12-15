@@ -10,21 +10,20 @@ Command line MySpace music downloader written in BASH. (Private use only!)
 
 ## System requirements
 * unix like system
-* zenity
 * wget
 * rtmpdump
 * ffmpeg is optional (to convert from flv to mp3)
 
 ## Instructions
-1. apply permissions: ```chmod +x myspace-dl.sh```
-2. run the file: ```./myspace.dl artistname```
+1. apply permissions: ```chmod +x myspace-dl-cli.sh```
+2. run the file: ```./myspace-dl-cli.sh artistname```
 
 ## Changelog
 *
 
 ## Known issues
 * some artists use different setup
-### Dec 15 2011
+ ### Dec 15 2011
 * Currently NOT working, MySpace changed their setup completely, rtmpdump now requires much more options, I'm working on it...
 
 ## License

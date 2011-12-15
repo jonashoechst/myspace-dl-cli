@@ -23,7 +23,8 @@ Command line MySpace music downloader written in BASH. (Private use only!)
 
 ## Known issues
 * some artists use different setup
- ### Dec 15 2011
+
+#### Dec 15 2011
 * Currently NOT working, MySpace changed their setup completely, rtmpdump now requires much more options, I'm working on it...
 
 ## License

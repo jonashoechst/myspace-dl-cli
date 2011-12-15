@@ -60,12 +60,9 @@ do
   title="$i"  #use number if no title found
  fi
  echo "Downloading $title..."
-<<<<<<< HEAD
  rtmpdump -r "$rtmp" -o "$artistname - $title.flv" -q -W "$player"
-=======
  artistname=$(echo "$artistname" | sed -e 's%/%_%g')
  rtmpdump -l 2 -r "$rtmp" -o "$artistname - $title.flv" -q -W "http://lads.myspacecdn.com/videos/MSMusicPlayer.swf"
->>>>>>> 5c77760742ed4525a2a1100e1a7c3925d6c3450a
  if which ffmpeg >/dev/null; then
   echo "Converting $title to mp3..."
   ffmpeg -y -i "$artistname - $title.flv" -metadata TITLE="$title" -metadata ARTIST="$artistname" -acodec copy -f mp3 "$artistname - $title.mp3" > /dev/null 2>&1 && rm "$artistname - $title.flv"

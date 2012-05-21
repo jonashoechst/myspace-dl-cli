@@ -54,7 +54,7 @@ do
  link="http://www.myspace.com/music/player?sid=$songid"
  songpage=`wget -L "$link" --quiet --user-agent="Mozilla" -O -`
  title=`echo "$songpage" | grep 'class="song"' | sed -e 's/.*class="song" title="//' -e 's/".*//' | head -n 1`
- rtmp=`echo "$songpage" | grep "rtmp://" | tr "," "\n" | grep 'rtmp://' | cut -d '"' -f 4 | head -n 1`
+ rtmp=`echo "$songpage" | grep "rtmpte://" | tr "," "\n" | grep 'rtmpte://' | cut -d '"' -f 4 | head -n 1`
  player=`echo "$songpage" | grep 'PixelPlayerUrl' | sed -e 's/.*{PixelPlayerUrl":"//' -e 's/".*//' | head -n 1`
  if [ ! "$title" ]; then
   title="$i"  #use number if no title found

@@ -24,9 +24,6 @@ Command line MySpace music downloader written in BASH. (Private use only!)
 ## Known issues
 * some artists use different setup
 
-#### Dec 15 2011
-* Currently NOT working, MySpace changed their setup completely, rtmpdump now requires much more options, I'm working on it...
-
 ## License
  ----------------------------------------------------------------------------
  "THE BEER-WARE LICENSE" (Revision 42): <pusic93@gmail.com> wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a beer in return. Luka Pusic

@@ -5,7 +5,7 @@ Contributors: lukapusic
 URI: http://360percents.com/posts/linux-myspace-music-downloader/
 Github: https://github.com/lukapusic/myspace-dl-cli
 
-''With the new Myspace it seems to be broken ://''
+__ With the new Myspace it seems to be broken :// __
 
 ## Description
 Command line MySpace music downloader written in BASH. (Private use only!)

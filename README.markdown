@@ -1,11 +1,10 @@
-# MySpace downloader CLI v5.3
+# MySpace downloader CLI v7.0
 
-Readme date: Dec 15 2011
-Contributors: lukapusic
+Readme date: Juil 07 2013
+Contributors: lukapusic, Basile Bruneau
 URI: http://360percents.com/posts/linux-myspace-music-downloader/
 Github: https://github.com/lukapusic/myspace-dl-cli
-
-## With the new Myspace it seems to be broken ://
+Github: https://github.com/NTag/myspace-dl-cli
 
 ## Description
 Command line MySpace music downloader written in BASH. (Private use only!)
@@ -21,13 +20,10 @@ Command line MySpace music downloader written in BASH. (Private use only!)
 2. run the file: ```./myspace-dl-cli.sh artistname```
 
 ## Changelog
-*
+* 07/07/2013:work with the new MySpace
 
 ## Known issues
-* some artists use different setup
-
-#### Dec 15 2011
-* Currently NOT working, MySpace changed their setup completely, rtmpdump now requires much more options, I'm working on it...
+* (maybe) some artists use different setup
 
 ## License
  ----------------------------------------------------------------------------

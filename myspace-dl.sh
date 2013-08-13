@@ -3,7 +3,7 @@
 # Author of Myspace music downloader <= 5.4: Luka Pusic <luka@pusic.si>
 # Author of modifications for a working v6.0 version: Basile Bruneau <basilebruneau@gmail.com>
 #
-version='7.0'
+version='7.1'
 
 echo "MySpace music downloader by http://360percents.com & http://ntag.fr"
 
@@ -62,17 +62,18 @@ swf=`echo "$page" | grep '"playerSwf":"' | sed -e 's/.*"playerSwf":"//' -e 's/".
 for i in `seq 1 $songcount`
 do
  song=`echo "$songs" | sed -n "$i"p`
- artistname=`echo "$song" | sed -e 's/.*data-artist-name="//' -e 's/".*//' -e 's/\\//-/g' | head -n 1`
- title=`echo "$song" | sed -e 's/.*data-title="//' -e 's/".*//' -e 's/\\//-/g' | head -n 1`
+ artistname=`echo "$song" | sed -e 's/.*data-artist-name="//' -e 's/".*//' -e 's/\\//-/g' -e 's/[^A-Za-z0-9_]/_/g' -e 's/_\+/_/g' -e 's/^_//' -e 's/_$//' | head -n 1`
+ albumname=`echo "$song" | sed -e 's/.*data-album-title="//' -e 's/".*//' -e 's/\\//-/g' -e 's/[^A-Za-z0-9_]/_/g' -e 's/_\+/_/g' -e 's/^_//' -e 's/_$//' | head -n 1`
+ title=`echo "$song" | sed -e 's/.*data-title="//' -e 's/".*//' -e 's/\\//-/g' -e 's/[^A-Za-z0-9_]/_/g' -e 's/_\+/_/g' -e 's/^_//' -e 's/_$//' | head -n 1`
  rtmpb=`echo "$song" | sed -e 's/.*data-stream-url="//' -e 's/".*//' | head -n 1`
  file=`echo "$rtmpb" | sed 's/.*;//' | head -n 1`
  rtmp=`echo "$rtmpb" | sed 's/;.*//' | head -n 1`
  
  echo "[+]  Downloading $title..."
- rtmpdump -r "$rtmp" -a "" -f "LNX 11,2,202,235" -o "$artistname - $title.flv" -q -W "$swf" -p "http://www.myspace.com" -y "$file"
+ rtmpdump -r "$rtmp" -a "" -f "LNX 11,2,202,235" -o "${albumname:-$artistname}-${title}.flv" -q -W "$swf" -p "http://www.myspace.com" -y "$file"
  
  if which ffmpeg >/dev/null; then
   echo "[+]  Converting $title to mp3..."
-  ffmpeg -y -i "$artistname - $title.flv" -metadata TITLE="$title" -metadata ARTIST="$artistname" -acodec libmp3lame -ab 192000 -ar 44100 -f mp3 "$artistname - $title.mp3" > /dev/null 2>&1 && rm "$artistname - $title.flv"
+  (ffmpeg -y -i "${albumname:-$artistname}-${title}.flv" -metadata TITLE="$title" -metadata ARTIST="$artistname" -metadata ALBUM="$albumname" -acodec libmp3lame -ab 192000 -ar 44100 -f mp3 "${albumname:-$artistname}-${title}.mp3" > /dev/null 2>&1 && rm "${albumname:-$artistname}-${title}.flv") &
  fi
 done

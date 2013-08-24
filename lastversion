@@ -1,4 +1,4 @@
 #File for update information
-version:7.0
-changelog:Work with the new MySpace and improving of the auto-updater!
+version:7.1
+changelog:Now includes album info in mp3
 url:https://raw.github.com/NTag/myspace-dl-cli/master/myspace-dl.sh

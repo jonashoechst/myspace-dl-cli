@@ -2,7 +2,6 @@
 
 Readme date: Juil 07 2013
 Contributors: lukapusic, Basile Bruneau
-URI: http://360percents.com/posts/linux-myspace-music-downloader/
 Github: https://github.com/lukapusic/myspace-dl-cli
 Github: https://github.com/NTag/myspace-dl-cli
 
@@ -28,8 +27,3 @@ Command line MySpace music downloader written in BASH. (Private use only!)
 =======
 * (maybe) some artists use different setup
 >>>>>>> c5771cea7ab2fe48baf492275e6c3f0b3ac50abf
-
-## License
- ----------------------------------------------------------------------------
- "THE BEER-WARE LICENSE" (Revision 42): <pusic93@gmail.com> wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a beer in return. Luka Pusic
- ----------------------------------------------------------------------------

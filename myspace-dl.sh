@@ -1,6 +1,6 @@
 #!/bin/bash --
 # Myspace music downloader v7.0
-# Author of Myspace music downloader <= 5.4: Luka Pusic <luka@pusic.si>
+# Author of Myspace music downloader <= 5.4: Luka Pusic <luka@pusic.com>
 # Author of modifications for a working v6.0 version: Basile Bruneau <basilebruneau@gmail.com>
 #
 version='7.1'

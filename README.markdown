@@ -1,3 +1,5 @@
+# DEPRECATED
+
 # MySpace downloader CLI v7.0
 
 Readme date: Juil 07 2013

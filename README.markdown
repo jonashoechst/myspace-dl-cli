@@ -24,8 +24,4 @@ Command line MySpace music downloader written in BASH. (Private use only!)
 * 07/07/2013:work with the new MySpace
 
 ## Known issues
-<<<<<<< HEAD
 * some artists use different setup
-=======
-* (maybe) some artists use different setup
->>>>>>> c5771cea7ab2fe48baf492275e6c3f0b3ac50abf

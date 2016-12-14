@@ -73,7 +73,7 @@ do
  rtmpdump -r "$rtmp" -a "" -f "LNX 11,2,202,235" -o "${albumname:-$artistname}-${title}.flv" -q -W "$swf" -p "http://www.myspace.com" -y "$file"
  
  if which ffmpeg >/dev/null; then
-  echo "[+]  Converting $title to mp3..."
-  (ffmpeg -y -i "${albumname:-$artistname}-${title}.flv" -metadata TITLE="$title" -metadata ARTIST="$artistname" -metadata ALBUM="$albumname" -acodec libmp3lame -ab 192000 -ar 44100 -f mp3 "${albumname:-$artistname}-${title}.mp3" > /dev/null 2>&1 && rm "${albumname:-$artistname}-${title}.flv") &
+  echo "[+]  Converting $title to m4a (without re-encoding)..."
+  (ffmpeg -y -i "${albumname:-$artistname}-${title}.flv" -metadata TITLE="$title" -metadata ARTIST="$artistname" -metadata ALBUM="$albumname" -codec copy "${albumname:-$artistname}-${title}.m4a" > /dev/null 2>&1 && rm "${albumname:-$artistname}-${title}.flv") &
  fi
 done
